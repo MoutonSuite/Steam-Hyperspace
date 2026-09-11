@@ -1,16 +1,14 @@
 {
-    "name": "SpaceTheme for Steam",
-    "description": "Theme with a dark aesthetic and modular-inspired look, offering clarity, flexibility, and an enhanced user experience.",
-    "author": "SpaceEnergy",
+    "name": "Hyperspace",
+    "description": "Based on SpaceTheme, a variant including support Big Picture Mode.",
+    "author": "MoutonDemocrate",
     "github": {
-        "owner": "SpaceTheme",
-        "repo_name": "Steam"
+        "owner": "MoutonSuite",
+        "repo_name": "Steam-Hyperspace"
     },
-    "funding": { "kofi": "spacetheme" },
-    "discord_support": { "inviteCodeExcludingLink": "7Zv8Xz3Vzn" },
-    "tags": [ "WIP", "Modular", "Dark", "Customizable"],
-    "header_image": "https://raw.githubusercontent.com/SpaceTheme/Steam/main/.github/assets/banner.webp",
-    "splash_image": "https://raw.githubusercontent.com/SpaceTheme/Steam/main/.github/assets/preview/preview.webp",
+    "tags": [ "WIP", "Modular", "Dark", "Customizable", "Colors", "Mouton" ],
+    "header_image": "https://raw.githubusercontent.com/MoutonSuite/Steam-Hyperspace/main/.github/assets/banner.webp",
+    "splash_image": "https://raw.githubusercontent.com/MoutonSuite/Steam-Hyperspace/main/.github/assets/preview/preview.webp",
     "Conditions": {
         "Window Controls": {
             "description": "Hide the Window Controls (Minimize, Maximize, Close) from the titlebar",
@@ -182,6 +180,15 @@
             "values": {
                 "Be Vietnam Pro (default)": {
                     "TargetCss": { "affects": [".*"], "src": "options/fonts/beVietnamPro.css" }
+                },
+                "Cormorant Infant": {
+                    "TargetCss": { "affects": [".*"], "src": "options/fonts/cormorant.css" }
+                },
+                "Playfair Display": {
+                    "TargetCss": { "affects": [".*"], "src": "options/fonts/playfair.css" }
+                },
+                "Mending": {
+                    "TargetCss": { "affects": [".*"], "src": "options/fonts/mending.css" }
                 },
                 "Arial": {
                     "TargetCss": { "affects": [".*"], "src": "options/fonts/arial.css" }
@@ -657,6 +664,19 @@
                     "TargetCss": { "affects": ["https://steamcommunity\\.com(/.*)?"], "src": "options/community/profilePagesHeader.css" }
                 }
             }
+        },
+
+        "Align Recent Games to Bottom": {
+            "description": "Aligns the recent games panel to the bottom of the screen",
+            "default": "no",
+            "tab": "Big Picture",
+            "section": "Layout",
+            "values": {
+                "no": {},
+                "yes": {
+                    "TargetCss": { "affects": ["GamepadMode$"], "src": "options/bigpicture/alignRecentGamesToBottom.css" }
+                }
+            }
         }
     },
     "RootColors": "./src/css/root.css",
@@ -674,6 +694,10 @@
         {
             "MatchRegexString": ".*",
             "TargetJs": "src/js/utils.js"
+        },
+        {
+            "MatchRegexString": "GamepadMode$",
+            "TargetCss": "src/css/bigpicture.custom.css"
         },
         {
             "MatchRegexString": "^Steam$",
@@ -727,5 +751,5 @@
             "MatchRegexString": "[href=\"/css/gamerecording.css\"]",
             "TargetCss": "src/css/steam/screenshotManager.css"
         }
-    ]
+    ]        
 }
